@@ -98,9 +98,9 @@ class GrayworldWBImpl CV_FINAL : public GrayworldWB
         // Find inverse of averages
         double max_sum = max(dsumB, max(dsumR, dsumG));
         const double eps = 0.1;
-        float dinvB = dsumB < eps ? 0.f : (float)(max_sum / dsumB),
-              dinvG = dsumG < eps ? 0.f : (float)(max_sum / dsumG),
-              dinvR = dsumR < eps ? 0.f : (float)(max_sum / dsumR);
+        dinvB = dsumB < eps ? 0.f : (float)(max_sum / dsumB);
+        dinvG = dsumG < eps ? 0.f : (float)(max_sum / dsumG);
+        dinvR = dsumR < eps ? 0.f : (float)(max_sum / dsumR);
 
         // Use the inverse of averages as channel gains:
         applyChannelGains(src, _dst, dinvB, dinvG, dinvR);
