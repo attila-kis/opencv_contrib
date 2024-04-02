@@ -71,9 +71,15 @@ class GrayworldWBImpl CV_FINAL : public GrayworldWB
     void setSaturationThreshold(float val) CV_OVERRIDE { thresh = val; }
     
     float getdinvB()  const CV_OVERRIDE { return dinvB; }
+    float getdinvG()  const CV_OVERRIDE { return dinvG; }
+    float getdinvR()  const CV_OVERRIDE { return dinvR; }
 
-    
     void balanceWhite(InputArray _src, OutputArray _dst) CV_OVERRIDE
+    {
+        balanceWhite(_src, _dst, true);
+    }
+    
+    void balanceWhite(InputArray _src, OutputArray _dst, bool apply) CV_OVERRIDE
     {
         CV_Assert(!_src.empty());
         CV_Assert(_src.isContinuous());
@@ -107,8 +113,10 @@ class GrayworldWBImpl CV_FINAL : public GrayworldWB
         dinvG = dsumG < eps ? 0.f : (float)(max_sum / dsumG);
         dinvR = dsumR < eps ? 0.f : (float)(max_sum / dsumR);
 
-        // Use the inverse of averages as channel gains:
-        applyChannelGains(src, _dst, dinvB, dinvG, dinvR);
+        if (apply == true){
+            // Use the inverse of averages as channel gains:
+            applyChannelGains(src, _dst, dinvB, dinvG, dinvR);
+        }
     }
 };
 
