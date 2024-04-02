@@ -110,7 +110,7 @@ class GrayworldWBImpl CV_FINAL : public GrayworldWB
         dinvR = dsumR < eps ? 0.f : (float)(max_sum / dsumR);
 
         // Use the inverse of averages as channel gains:
-        applyChannelGains(src, _dst, dinvB, dinvG, dinvR);
+      //  applyChannelGains(src, _dst, dinvB, dinvG, dinvR);
     }
 };
 
