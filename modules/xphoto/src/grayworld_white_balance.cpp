@@ -51,11 +51,20 @@ class GrayworldWBImpl CV_FINAL : public GrayworldWB
 {
   private:
     float thresh;
+    float dinvB;
+    float dinvR;
+    float dinvG;
 
   public:
     GrayworldWBImpl() { thresh = 0.9f; }
     float getSaturationThreshold() const CV_OVERRIDE { return thresh; }
     void setSaturationThreshold(float val) CV_OVERRIDE { thresh = val; }
+    
+    float getDinvB() const CV_OVERRIDE  { return dinvB; }
+    float getDinvB() const CV_OVERRIDE { return dinvB; }
+    float getDinvB() const CV_OVERRIDE { return dinvB; }
+
+  
     void balanceWhite(InputArray _src, OutputArray _dst) CV_OVERRIDE
     {
         CV_Assert(!_src.empty());
@@ -86,9 +95,9 @@ class GrayworldWBImpl CV_FINAL : public GrayworldWB
         // Find inverse of averages
         double max_sum = max(dsumB, max(dsumR, dsumG));
         const double eps = 0.1;
-        float dinvB = dsumB < eps ? 0.f : (float)(max_sum / dsumB),
-              dinvG = dsumG < eps ? 0.f : (float)(max_sum / dsumG),
-              dinvR = dsumR < eps ? 0.f : (float)(max_sum / dsumR);
+        dinvB = dsumB < eps ? 0.f : (float)(max_sum / dsumB);
+        dinvG = dsumG < eps ? 0.f : (float)(max_sum / dsumG);
+        dinvR = dsumR < eps ? 0.f : (float)(max_sum / dsumR);
 
         // Use the inverse of averages as channel gains:
         applyChannelGains(src, _dst, dinvB, dinvG, dinvR);
