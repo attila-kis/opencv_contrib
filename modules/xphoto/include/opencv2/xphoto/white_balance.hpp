@@ -145,7 +145,6 @@ class CV_EXPORTS_W GrayworldWB : public WhiteBalancer
     CV_WRAP virtual float getSaturationThreshold() const = 0;
     /** @copybrief getSaturationThreshold @see getSaturationThreshold */
     CV_WRAP virtual void setSaturationThreshold(float val) = 0;
-
 };
 
 /** @brief Creates an instance of GrayworldWB
@@ -213,7 +212,6 @@ class CV_EXPORTS_W LearningBasedWB : public WhiteBalancer
 @param path_to_model Path to a .yml file with the model. If not specified, the default model is used
  */
 CV_EXPORTS_W Ptr<LearningBasedWB> createLearningBasedWB(const String& path_to_model = String());
-
 
 /** @brief Implements an efficient fixed-point approximation for applying channel gains, which is
     the last step of multiple white balance algorithms.
