@@ -146,9 +146,7 @@ class CV_EXPORTS_W GrayworldWB : public WhiteBalancer
     /** @copybrief getSaturationThreshold @see getSaturationThreshold */
     CV_WRAP virtual void setSaturationThreshold(float val) = 0;
     
-    float dinvB;
-    float dinvG;
-    float dinvR;
+    virtual void float getdinvB() const = 0;
 };
 
 /** @brief Creates an instance of GrayworldWB
