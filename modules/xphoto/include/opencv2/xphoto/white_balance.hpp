@@ -146,17 +146,8 @@ class CV_EXPORTS_W GrayworldWB : public WhiteBalancer
     /** @copybrief getSaturationThreshold @see getSaturationThreshold */
     CV_WRAP virtual void setSaturationThreshold(float val) = 0;
     
-    
-    CV_WRAP virtual float getSaturationThreshold() const = 0;
-    /** @brief Maximum saturation for a pixel to be included in the
-        gray-world assumption
-    @see setSaturationThreshold */
-    
-    /** @brief Get DinvB*/
     virtual float getDinvB() const = 0;
-    /** @brief Get DinvR*/
     virtual float getDinvR() const = 0;
-    /** @brief Get DinvG*/
     virtual float getDinvG() const = 0;
 
 };
