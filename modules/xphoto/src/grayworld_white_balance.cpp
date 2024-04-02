@@ -46,8 +46,6 @@ namespace cv
 namespace xphoto
 {
 
-void calculateChannelSums(uint &sumB, uint &sumG, uint &sumR, uchar *src_data, int src_len, float thresh);
-void calculateChannelSums(uint64 &sumB, uint64 &sumG, uint64 &sumR, ushort *src_data, int src_len, float thresh);
 
 class GrayworldWBImpl CV_FINAL : public GrayworldWB
 {

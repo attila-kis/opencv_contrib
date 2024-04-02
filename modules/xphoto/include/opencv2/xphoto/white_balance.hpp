@@ -213,6 +213,10 @@ class CV_EXPORTS_W LearningBasedWB : public WhiteBalancer
  */
 CV_EXPORTS_W Ptr<LearningBasedWB> createLearningBasedWB(const String& path_to_model = String());
 
+CV_EXPORTS_W void calculateChannelSums(uint &sumB, uint &sumG, uint &sumR, uchar *src_data, int src_len, float thresh);
+
+CV_EXPORTS_W void calculateChannelSums(uint64 &sumB, uint64 &sumG, uint64 &sumR, ushort *src_data, int src_len, float thresh);
+
 /** @brief Implements an efficient fixed-point approximation for applying channel gains, which is
     the last step of multiple white balance algorithms.
 
