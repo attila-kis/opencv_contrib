@@ -149,9 +149,6 @@ class CV_EXPORTS_W GrayworldWB : public WhiteBalancer
     virtual float getdinvB() const = 0;
     virtual float getdinvG() const = 0;
     virtual float getdinvR() const = 0;
-    
-    virtual void balanceWhite(InputArray _src, OutputArray _dst, bool apply);
-
 
 };
 
