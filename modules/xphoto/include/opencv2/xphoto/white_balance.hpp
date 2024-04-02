@@ -150,6 +150,7 @@ class CV_EXPORTS_W GrayworldWB : public WhiteBalancer
     virtual float getdinvG() const = 0;
     virtual float getdinvR() const = 0;
 
+    
 };
 
 /** @brief Creates an instance of GrayworldWB
