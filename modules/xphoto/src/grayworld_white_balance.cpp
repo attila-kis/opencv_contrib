@@ -55,7 +55,17 @@ class GrayworldWBImpl CV_FINAL : public GrayworldWB
     float thresh;
 
   public:
-    GrayworldWBImpl() { thresh = 0.9f; }
+    float dinvB;
+    float dinvG;
+    float dinvR;
+    
+    GrayworldWBImpl() {
+        thresh = 0.9f;
+        dinvB = 0.0f;
+        dinvG = 0.0f;
+        dinvR = 0.0f;
+    }
+    
     float getSaturationThreshold() const CV_OVERRIDE { return thresh; }
     void setSaturationThreshold(float val) CV_OVERRIDE { thresh = val; }
     void balanceWhite(InputArray _src, OutputArray _dst) CV_OVERRIDE
